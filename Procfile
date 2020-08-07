@@ -1,1 +1,1 @@
-web: FRSC-Project
+web: bin/FRSC-Project
