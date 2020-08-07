@@ -33,6 +33,6 @@ func main() {
 	if port == "" {
 		httpRouter.SERVER(defaultPort)
 	} else {
-		httpRouter.SERVER(port)
+		httpRouter.SERVER(":"+port, nil)
 	}
 }
