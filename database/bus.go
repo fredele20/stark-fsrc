@@ -4,6 +4,8 @@ import (
 	"FRSC-Project/model"
 	"context"
 	"go.mongodb.org/mongo-driver/bson"
+	"log"
+	//"log"
 )
 
 type Bus interface {
@@ -11,12 +13,23 @@ type Bus interface {
 	GetBusByField(field, value string) (*model.Motor, error)
 	GetBusByPlateNumber(plateNumber string) (*model.Motor, error)
 	GetBuses() ([]*model.Motor, error)
+	FindOne(bus *model.Motor) (*model.Motor, error)
+	//GetBus()
 }
 
 type db struct {
 }
 
 func NewBusDB() Bus { return &db{} }
+
+func (d *db) FindOne(bus *model.Motor) (*model.Motor, error) {
+	var buses *model.Motor
+	err := Collection.FindOne(context.TODO(), bson.D{{"model", bus.Model}}).Decode(&buses)
+	if err == nil {
+		log.Fatalf("Could not get the post %v", err)
+	}
+	return buses, nil
+}
 
 func (d *db) GetBusByField(field, value string) (*model.Motor, error) {
 	var motor model.Motor

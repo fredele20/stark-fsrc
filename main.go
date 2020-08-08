@@ -29,6 +29,7 @@ func main() {
 
 	httpRouter.POST("/buses/register", busApi.RegisterBus)
 	httpRouter.GET("/buses", busApi.GetBuses)
+	httpRouter.GET("/buses/membership", busApi.CheckMembership)
 
 	if port == "" {
 		httpRouter.SERVER(defaultPort)

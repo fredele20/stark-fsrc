@@ -2,9 +2,15 @@ package domain
 
 import (
 	"FRSC-Project/model"
+	//"context"
 	"errors"
 	"log"
+	//"net/http"
 )
+
+func (d *domain) CheckMembership(bus *model.Motor) (*model.Motor, error) {
+	return d.db.FindOne(bus)
+}
 
 func (d *domain) RegisterBus(input model.Motor) (*model.AuthResponse, error) {
 	_, err := d.db.GetBusByPlateNumber(input.PlateNumber)
@@ -24,6 +30,7 @@ func (d *domain) RegisterBus(input model.Motor) (*model.AuthResponse, error) {
 		Seats:       input.Seats,
 		PlateNumber: input.PlateNumber,
 		Membership:  input.Membership,
+		Model:       input.Model,
 	}
 
 	_, err = d.db.AddBus(payload)

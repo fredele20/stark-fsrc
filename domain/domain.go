@@ -8,6 +8,7 @@ import (
 type BusDomain interface {
 	RegisterBus(input model.Motor) (*model.AuthResponse, error)
 	Buses() ([]*model.Motor, error)
+	CheckMembership(bus *model.Motor) (*model.Motor, error)
 }
 
 type domain struct {

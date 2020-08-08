@@ -12,6 +12,7 @@ type Motor struct {
 	Seats       string `json:"seats"`
 	PlateNumber string `json:"plate"`
 	Membership  string `json:"membership"`
+	Model       string `json:"model"`
 }
 
 type AuthResponse struct {
