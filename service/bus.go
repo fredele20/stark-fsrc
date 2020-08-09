@@ -35,6 +35,11 @@ func (s *service) Validate(motor *model.Motor) error {
 		err := errors.New("please provide the color of your bus")
 		return err
 	}
+
+	if motor.Model == "" {
+		err := errors.New("please provide the model of your bus")
+		return err
+	}
 	return nil
 }
 
