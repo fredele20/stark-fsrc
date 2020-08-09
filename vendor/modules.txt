@@ -22,6 +22,8 @@ github.com/dgrijalva/jwt-go
 github.com/go-stack/stack
 # github.com/golang/snappy v0.0.1
 github.com/golang/snappy
+# github.com/gorilla/handlers v1.4.2
+github.com/gorilla/handlers
 # github.com/gorilla/mux v1.7.4
 github.com/gorilla/mux
 # github.com/jmespath/go-jmespath v0.0.0-20180206201540-c2b33e8439af

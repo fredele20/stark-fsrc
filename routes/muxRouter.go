@@ -2,6 +2,7 @@ package router
 
 import (
 	"fmt"
+	"github.com/gorilla/handlers"
 	"github.com/gorilla/mux"
 	"net/http"
 )
@@ -22,5 +23,5 @@ func (*muxRouter) POST(uri string, f func(w http.ResponseWriter, r *http.Request
 }
 func (*muxRouter) SERVER(port string) {
 	fmt.Printf("Mux HTTP server running on port %v", port)
-	http.ListenAndServe(port, muxDispatcher)
+	http.ListenAndServe(port, handlers.CORS()(muxDispatcher))
 }
